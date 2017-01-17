@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if argument is a folder
+result=$(goto-main path $@)
+
+if [[ $result == /* ]]; then
+  cd $result;
+else
+  goto-main $@;
+fi
