@@ -1,1 +1,5 @@
 node_modules/
+yarn-error.log
+src/
+bin/goto-main
+

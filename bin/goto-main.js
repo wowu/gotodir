@@ -1,25 +1,17 @@
 #!/usr/bin/env node
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-
 const program = require('commander');
-const chalk = require('chalk');
 const omelette = require('omelette');
 
 const pkg = require('../package.json');
-const commands = require('../src/commands');
-const db = require('../src/database');
+const commands = require('../lib/commands');
+const db = require('../lib/database');
 
 const complete = omelette('goto|to <folder> <folder>');
 
 complete.on('folder', () => {
   const folders = db.get('folders').value();
 
-  complete.reply(folders.map((folder) => {
-    return folder.name;
-  }));
+  complete.reply(folders.map(folder => folder.name));
 });
 
 complete.init();
@@ -52,7 +44,7 @@ program
 
 program
   .command('help', null, { noHelp: true })
-  .action(() => { program.outputHelp() });
+  .action(() => { program.outputHelp(); });
 
 program
   .command('*', null, { noHelp: true })
