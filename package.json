@@ -1,5 +1,5 @@
 {
-  "name": "goto",
+  "name": "@karol/goto",
   "version": "1.0.0",
   "description": "Simple cli app for fast directory changing.",
   "bin": {
