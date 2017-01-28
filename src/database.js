@@ -10,4 +10,4 @@ const db = low(file);
 
 db.defaults({ folders: [] }).value();
 
-module.exports = db
+module.exports = db;

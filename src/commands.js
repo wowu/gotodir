@@ -9,80 +9,76 @@ exports.addFolder = (name, folderPath = './') => {
   console.log(`\nAdded ${chalk.green(name)} with path ${chalk.yellow(absolutePath)}\n`);
 
   db.get('folders').push({
-    name: name,
+    name,
     path: absolutePath,
-    lastAccess: + new Date(),
+    lastAccess: +new Date(),
   }).value();
-}
+};
 
 exports.deleteFolder = (name) => {
-  if (db.get('folders').filter({name: name}).size().value()) {
-    db.get('folders').remove({name: name}).value();
+  if (db.get('folders').filter({ name }).size().value()) {
+    db.get('folders').remove({ name }).value();
 
     console.log(chalk.green.bold(`\nFolder "${name}" removed.\n`));
   } else {
     console.log(chalk.bold.red(`\nFolder "${name}" not found.\n`));
   }
-}
+};
 
 exports.getPath = (name) => {
   if (!name) return;
 
-  if (db.get('folders').filter({name: name}).size().value()) {
-    const folder = db.get('folders').find({name: name})
-    folder.assign({ lastAccess: + new Date() }).value()
-    const folder_path = folder.value().path;
+  if (db.get('folders').filter({ name }).size().value()) {
+    const folder = db.get('folders').find({ name });
+    folder.assign({ lastAccess: +new Date() }).value();
+    const folderPath = folder.value().path;
 
-    console.log(folder_path);
+    console.log(folderPath);
   } else {
     console.log();
   }
-}
+};
 
 exports.findFolder = (name) => {
-  if (db.get('folders').filter({name: name}).size().value()) {
-    const folder = db.get('folders').find({name: name})
-    folder.assign({ lastAccess: + new Date() }).value()
-    const folder_path = folder.value().path;
+  if (db.get('folders').filter({ name }).size().value()) {
+    const folder = db.get('folders').find({ name });
+    folder.assign({ lastAccess: +new Date() }).value();
+    const folderPath = folder.value().path;
 
-    console.log(folder_path);
+    console.log(folderPath);
   } else {
     console.log(chalk.bold.red(`\nFolder "${name}" not found.\n`));
   }
-}
+};
 
-exports.getFolders = () => {
-  return folders = db.get('folders').value();
-}
+exports.getFolders = () => db.get('folders').value();
 
 exports.showAllFolders = (callback) => {
   const folders = db.get('folders').value();
 
   // Sort folders by lastAccess
-  folders.sort((a, b) => {
-    return b.lastAccess - a.lastAccess;
-  });
+  folders.sort((a, b) => b.lastAccess - a.lastAccess);
 
-  var maxLength = 0;
+  let maxLength = 0;
 
   // If there is any folder
   if (folders.length) {
-    for (var folder of folders) {
+    folders.forEach((folder) => {
       if (folder.name.length > maxLength) {
         maxLength = folder.name.length;
       }
-    }
+    });
 
     console.log();
     console.log(chalk.bold(leftPad('Available folders:', maxLength + 12)));
 
-    for (var folder of folders) {
-      var name = leftPad(folder.name, maxLength + 2);
+    folders.forEach((folder) => {
+      const name = leftPad(folder.name, maxLength + 2);
       console.log(`${chalk.green(name)}  (${chalk.yellow(folder.path)})`);
-    }
+    });
 
     console.log();
   } else {
     callback();
   }
-}
+};

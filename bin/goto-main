@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-/* jshint esversion: 6 */
 
 const fs = require('fs');
 const path = require('path');
@@ -10,8 +9,8 @@ const chalk = require('chalk');
 const omelette = require('omelette');
 
 const pkg = require('../package.json');
-const commands = require('../lib/commands');
-const db = require('../lib/database');
+const commands = require('../src/commands');
+const db = require('../src/database');
 
 const complete = omelette('goto|to <folder> <folder>');
 
