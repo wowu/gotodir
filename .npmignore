@@ -1,5 +1,4 @@
 node_modules/
 yarn-error.log
-lib/
-bin/goto-main
-
+src/
+bin/goto-main.js
