@@ -18,12 +18,11 @@ complete.init();
 
 program.version(pkg.version);
 
-program
-  .option('--setup', 'Install completion script', () => {
-    console.log('Installing completion script...');
-    console.log('Restart your shell.');
-    complete.setupShellInitFile();
-  });
+program.option('--setup', 'Install completion script', () => {
+  console.log('Installing completion script...');
+  console.log('Restart your shell.');
+  complete.setupShellInitFile();
+});
 
 program
   .command('add <name> [path]')
@@ -33,26 +32,23 @@ program
 program
   .command('delete <name>')
   .alias('remove')
-  .description('Remove directory from goto')
+  .description('Remove a directory from goto')
   .action(commands.deleteFolder);
 
-// Only for use in goto script
+// Only for use in the goto bash script
 program
   .command('path [name]', null, { noHelp: true })
   .description('Get path of given folder')
   .action(commands.getPath);
 
-program
-  .command('help', null, { noHelp: true })
-  .action(() => { program.outputHelp(); });
+program.command('help', null, { noHelp: true }).action(() => {
+  program.outputHelp();
+});
 
-program
-  .command('*', null, { noHelp: true })
-  .action(commands.findFolder);
+program.command('*', null, { noHelp: true }).action(commands.findFolder);
 
-program
-  .on('--help', () => {
-    console.log(`  Instalation:
+program.on('--help', () => {
+  console.log(`  Instalation:
 
     Add this to your .bashrc or .zshrc:
 
@@ -63,7 +59,7 @@ program
       to --setup
       source ~/.bashrc  # OR ~/.zshrc
     `);
-  });
+});
 
 // If no command provided
 if (!process.argv.slice(2).length) {

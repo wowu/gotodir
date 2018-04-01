@@ -8,16 +8,28 @@ exports.addFolder = (name, folderPath = './') => {
 
   console.log(`\nAdded ${chalk.green(name)} with path ${chalk.yellow(absolutePath)}\n`);
 
-  db.get('folders').push({
-    name,
-    path: absolutePath,
-    lastAccess: +new Date(),
-  }).value();
+  db
+    .get('folders')
+    .push({
+      name,
+      path: absolutePath,
+      lastAccess: +new Date(),
+    })
+    .value();
 };
 
-exports.deleteFolder = (name) => {
-  if (db.get('folders').filter({ name }).size().value()) {
-    db.get('folders').remove({ name }).value();
+exports.deleteFolder = name => {
+  if (
+    db
+      .get('folders')
+      .filter({ name })
+      .size()
+      .value()
+  ) {
+    db
+      .get('folders')
+      .remove({ name })
+      .value();
 
     console.log(chalk.green.bold(`\nFolder "${name}" removed.\n`));
   } else {
@@ -25,10 +37,16 @@ exports.deleteFolder = (name) => {
   }
 };
 
-exports.getPath = (name) => {
+exports.getPath = name => {
   if (!name) return;
 
-  if (db.get('folders').filter({ name }).size().value()) {
+  if (
+    db
+      .get('folders')
+      .filter({ name })
+      .size()
+      .value()
+  ) {
     const folder = db.get('folders').find({ name });
     folder.assign({ lastAccess: +new Date() }).value();
     const folderPath = folder.value().path;
@@ -39,8 +57,14 @@ exports.getPath = (name) => {
   }
 };
 
-exports.findFolder = (name) => {
-  if (db.get('folders').filter({ name }).size().value()) {
+exports.findFolder = name => {
+  if (
+    db
+      .get('folders')
+      .filter({ name })
+      .size()
+      .value()
+  ) {
     const folder = db.get('folders').find({ name });
     folder.assign({ lastAccess: +new Date() }).value();
     const folderPath = folder.value().path;
@@ -53,7 +77,7 @@ exports.findFolder = (name) => {
 
 exports.getFolders = () => db.get('folders').value();
 
-exports.showAllFolders = (callback) => {
+exports.showAllFolders = callback => {
   const folders = db.get('folders').value();
 
   // Sort folders by lastAccess
@@ -63,7 +87,7 @@ exports.showAllFolders = (callback) => {
 
   // If there is any folder
   if (folders.length) {
-    folders.forEach((folder) => {
+    folders.forEach(folder => {
       if (folder.name.length > maxLength) {
         maxLength = folder.name.length;
       }
@@ -72,7 +96,7 @@ exports.showAllFolders = (callback) => {
     console.log();
     console.log(chalk.bold(leftPad('Available folders:', maxLength + 12)));
 
-    folders.forEach((folder) => {
+    folders.forEach(folder => {
       const name = leftPad(folder.name, maxLength + 2);
       console.log(`${chalk.green(name)}  (${chalk.yellow(folder.path)})`);
     });
