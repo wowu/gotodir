@@ -5,7 +5,7 @@ function getUserHome() {
   return process.env.HOME || process.env.USERPROFILE;
 }
 
-const file = path.resolve(getUserHome(), '.goto.json');
+const file = path.resolve(getUserHome(), '.gotodir.json');
 const db = low(file);
 
 db.defaults({ folders: [] }).value();

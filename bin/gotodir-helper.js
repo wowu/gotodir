@@ -6,7 +6,7 @@ const pkg = require('../package.json');
 const commands = require('../lib/commands');
 const db = require('../lib/database');
 
-const complete = omelette('goto|to <folder> <folder>');
+const complete = omelette('gotodir|to <folder> <folder>');
 
 complete.on('folder', () => {
   const folders = db.get('folders').value();
@@ -26,17 +26,17 @@ program.option('--setup', 'Install completion script', () => {
 
 program
   .command('add <name> [path]')
-  .description('Add a directory to goto. Current directory is a default path.')
+  .description('Add a directory to gotodir. Current directory is a default path.')
   .action(commands.addFolder);
 
 program
   .command('rm <name>')
   .alias('remove')
   .alias('delete')
-  .description('Remove a directory from goto')
+  .description('Remove a directory from gotodir')
   .action(commands.deleteFolder);
 
-// Only for use in the goto bash script
+// Only for use in the gotodir bash script
 program
   .command('path [name]', null, { noHelp: true })
   .description('Get path of given folder')
@@ -53,7 +53,7 @@ program.on('--help', () => {
 
     Add this to your .bashrc or .zshrc:
 
-       alias to=". goto"
+       alias to=". gotodir"
 
     Then you can run this to enable shell completion:
 
