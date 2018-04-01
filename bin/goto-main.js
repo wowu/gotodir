@@ -30,8 +30,9 @@ program
   .action(commands.addFolder);
 
 program
-  .command('delete <name>')
+  .command('rm <name>')
   .alias('remove')
+  .alias('delete')
   .description('Remove a directory from goto')
   .action(commands.deleteFolder);
 

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# Check if argument is a folder
+# Run shell completion only once
+if [[ $1 == '--setup']]; then
+  goto-main --setup
+  exit 0
+fi
+
 result=$(goto-main path $@)
 
 if [[ $result == /* ]]; then
