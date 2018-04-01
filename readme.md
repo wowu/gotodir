@@ -1,6 +1,8 @@
-# GoToDir
+# GoToDir 🏃
 
-A command line app for fast directory switch.
+A command line app for fast directory switching ⚡️
+
+![GoToDir gif](https://raw.githubusercontent.com/Wowu/gotodir/master/.github/gotodir.gif)
 
 ## Installation
 
@@ -12,7 +14,7 @@ $ npm install -g gotodir
 $ yarn global add gotodir
 ```
 
-### Important! Create an alias
+### ❗ Important! Create an alias
 
 Add this line to .bashrc or .zshrc.
 

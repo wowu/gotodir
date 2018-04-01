@@ -1,14 +1,15 @@
 {
   "name": "gotodir",
   "version": "1.2.1",
-  "description": "A cli app for fast directory changing.",
+  "description": "A cli app for fast directory changing ️️⚡️",
   "bin": {
     "gotodir": "./bin/gotodir",
     "gotodir-helper": "./bin/gotodir-helper"
   },
   "scripts": {
     "lint": "eslint src/ bin/gotodir-helper.js",
-    "build": "babel -d lib/ src/ && babel -o bin/gotodir-helper bin/gotodir-helper.js && chmod +x bin/gotodir-helper",
+    "build":
+      "babel -d lib/ src/ && babel -o bin/gotodir-helper bin/gotodir-helper.js && chmod +x bin/gotodir-helper",
     "prettier": "prettier --write src/**/*.js package.json bin/gotodir-helper.js"
   },
   "author": "Karol Musur",
