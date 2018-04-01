@@ -7,9 +7,10 @@
     "goto-main": "./bin/goto-main"
   },
   "scripts": {
-    "lint": "eslint src/",
-    "build": "babel -d lib/ src/ && babel -o bin/goto-main src/goto-main.js && chmod +x bin/goto-main",
-    "prettier": "prettier --write src/**/*.js package.json"
+    "lint": "eslint src/ bin/goto-main.js",
+    "build":
+      "babel -d lib/ src/ && babel -o bin/goto-main bin/goto-main.js && chmod +x bin/goto-main",
+    "prettier": "prettier --write src/**/*.js package.json bin/goto-main.js"
   },
   "author": "Karol Musur",
   "license": "ISC",
