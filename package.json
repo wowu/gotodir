@@ -1,6 +1,6 @@
 {
   "name": "gotodir",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A cli app for fast directory changing.",
   "bin": {
     "gotodir": "./bin/gotodir",
