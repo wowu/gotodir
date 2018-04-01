@@ -13,6 +13,7 @@
     "prettier": "prettier --write src/**/*.js package.json bin/gotodir-helper.js"
   },
   "author": "Karol Musur",
+  "repository": "github:Wowu/gotodir",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",
