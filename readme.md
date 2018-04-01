@@ -9,10 +9,10 @@ A command line app for fast directory switch.
 ```bash
 $ npm install -g gotodir
 # or
-$ yarn global install gotodir
+$ yarn global add gotodir
 ```
 
-### **Important!** Create an alias
+### Important! Create an alias
 
 Add this line to .bashrc or .zshrc.
 
@@ -47,13 +47,23 @@ $ to add project1 /sample/long/and/complicated/path
 #=> Added project1 with path /sample/long/and/complicated/path
 ```
 
-#### Show all added folders
+#### Changing current folder
+
+```bash
+$ pwd
+#=> /home/user
+$ to project1
+$ pwd
+#=> /sample/long/and/complicated/path
+```
+
+#### Showing all added folders
 
 ```bash
 to
 ```
 
-#### Remove folder from gotodir
+#### Removing folder from gotodir
 
 ```bash
 to rm project1
