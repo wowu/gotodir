@@ -1,15 +1,15 @@
-# Goto
+# GoToDir
 
-A command line app for fast directory changing.
+A command line app for fast directory switch.
 
 ## Installation
 
-### Install goto package
+### Install gotodir package
 
 ```bash
-$ npm install -g goto
+$ npm install -g gotodir
 # or
-$ yarn global install goto
+$ yarn global install gotodir
 ```
 
 ### **Important!** Create an alias
@@ -17,12 +17,12 @@ $ yarn global install goto
 Add this line to .bashrc or .zshrc.
 
 ```bash
-alias to=". goto"
+alias to=". gotodir"
 ```
 
 Restart your shell.
 
-Without this alias you have to type `. goto` each time you use this app.
+Without this alias you have to type `. gotodir` each time you use this app.
 
 ### Setup shell autocompletion
 
@@ -34,7 +34,7 @@ Restart your shell.
 
 ## Usage
 
-#### Adding current folder to goto
+#### Adding current folder to gotodir
 
 ```bash
 $ cd /sample/long/and/complicated/path
@@ -53,7 +53,7 @@ $ to add project1 /sample/long/and/complicated/path
 to
 ```
 
-#### Remove folder from goto
+#### Remove folder from gotodir
 
 ```bash
 to rm project1

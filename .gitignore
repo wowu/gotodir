@@ -1,5 +1,5 @@
 node_modules/
 yarn-error.log
 lib/
-bin/goto-main
+bin/gotodir-helper
 

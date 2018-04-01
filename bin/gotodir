@@ -2,14 +2,14 @@
 
 # Run shell completion only once
 if [[ $1 == '--setup']]; then
-  goto-main --setup
+  gotodir-helper --setup
   exit 0
 fi
 
-result=$(goto-main path $@)
+result=$(gotodir-helper path $@)
 
 if [[ $result == /* ]]; then
   cd $result;
 else
-  goto-main $@;
+  gotodir-helper $@;
 fi
