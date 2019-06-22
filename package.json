@@ -18,18 +18,18 @@
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "jsonfile": "^2.4.0",
-    "left-pad": "^1.1.3",
+    "left-pad": "^1.3.0",
     "lowdb": "^0.14.0",
     "omelette": "^0.3.1",
     "pryjs": "^1.0.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
-    "eslint": "^3.14.1",
-    "eslint-config-airbnb-base": "^11.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^6.0.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "2.9.0",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "^2.17.3",
     "prettier": "1.11.1"
   }
 }
