@@ -18,6 +18,24 @@ exports.addFolder = (name, folderPath = './') => {
     .value();
 };
 
+exports.renameFolder = (oldName, newName) => {
+  const folder = db.get('folders').find({ name: oldName });
+  const newFolder = db.get('folders').find({ name: newName });
+
+  if (!folder.value()) {
+    console.log(chalk.bold.red(`\nFolder "${oldName}" not found.\n`));
+    return;
+  }
+
+  if (newFolder.value()) {
+    console.log(chalk.bold.red(`\nFolder "${newName}" already exists.\n`));
+    return;
+  }
+
+  folder.assign({ name: newName }).value();
+  console.log(chalk.green.bold(`\nRenamed "${oldName}" to "${newName}".\n`));
+};
+
 exports.deleteFolder = name => {
   if (
     db

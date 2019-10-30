@@ -30,6 +30,12 @@ program
   .action(commands.addFolder);
 
 program
+  .command('mv <oldName> <newName>')
+  .description('Rename a directory in gotodir')
+  .alias('rename')
+  .action(commands.renameFolder);
+
+program
   .command('rm <name>')
   .alias('remove')
   .alias('delete')
