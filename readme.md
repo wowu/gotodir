@@ -39,14 +39,34 @@ Restart your shell.
 #### Adding current folder to gotodir
 
 ```bash
-$ cd /sample/long/and/complicated/path
-$ to add project1
-#=> Added project1 with path /sample/long/and/complicated/path
+$ cd /sample/long/and/complicated/path/to/project
+$ to add
+#=> Added "project" with path /sample/long/and/complicated/path/to/project
 
-# or
 
-$ to add project1 /sample/long/and/complicated/path
-#=> Added project1 with path /sample/long/and/complicated/path
+# or pass custom name name
+
+$ to add super_project
+#=> Added "super_project" with path /sample/long/and/complicated/path/to/project
+
+
+# or pass custom name and path
+
+$ to add another_project /different/path/to/project
+#=> Added "another_project" with path /different/path/to/project
+```
+
+#### Showing all added folders
+
+```bash
+to
+
+#=>
+#
+#          Available folders:
+#          project1  (/sample/long/and/complicated/path)
+#   another_project  (/different/path/to/project)
+#
 ```
 
 #### Changing current folder
@@ -59,15 +79,18 @@ $ pwd
 #=> /sample/long/and/complicated/path
 ```
 
-#### Showing all added folders
 
-```bash
-to
-```
 
 #### Removing folder from gotodir
 
 ```bash
 to rm project1
 #=> Folder "project1" removed.
+```
+
+#### Changing folder name inside gotodir
+
+```bash
+to mv project1 project2
+#=> Renamed "project1" to "project2".
 ```
