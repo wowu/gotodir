@@ -8,10 +8,8 @@
   },
   "scripts": {
     "lint": "eslint src/ bin/gotodir-helper.js",
-    "build":
-      "babel -d lib/ src/ && babel -o bin/gotodir-helper bin/gotodir-helper.js && chmod +x bin/gotodir-helper",
-    "watch":
-      "concurrently 'babel -w -d lib/ src/' 'babel -w -o bin/gotodir-helper bin/gotodir-helper.js'",
+    "build": "babel -d lib/ src/ && babel -o bin/gotodir-helper bin/gotodir-helper.js && chmod +x bin/gotodir-helper",
+    "watch": "concurrently 'babel -w -d lib/ src/' 'babel -w -o bin/gotodir-helper bin/gotodir-helper.js'",
     "prettier": "prettier --write src/**/*.js package.json bin/gotodir-helper.js"
   },
   "author": "Karol Musur",
@@ -23,8 +21,7 @@
     "jsonfile": "^2.4.0",
     "left-pad": "^1.3.0",
     "lowdb": "^0.14.0",
-    "omelette": "^0.3.1",
-    "pryjs": "^1.0.3"
+    "omelette": "^0.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -34,6 +31,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "^2.17.3",
-    "prettier": "1.11.1"
+    "prettier": "1.11.1",
+    "pryjs": "^1.0.3"
   }
 }
