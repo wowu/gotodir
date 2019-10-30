@@ -25,8 +25,8 @@ program.option('--setup', 'Install completion script', () => {
 });
 
 program
-  .command('add <name> [path]')
-  .description('Add a directory to gotodir. Current directory is a default path.')
+  .command('add [name] [path]')
+  .description('Add a directory to gotodir. Current directory is added by default.')
   .action(commands.addFolder);
 
 program

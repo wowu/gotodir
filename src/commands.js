@@ -3,10 +3,18 @@ const db = require('./database');
 const chalk = require('chalk');
 const leftPad = require('left-pad');
 
-exports.addFolder = (name, folderPath = './') => {
-  const absolutePath = path.resolve(folderPath);
+const currentDirectoryName = () => {
+  return path.basename(process.cwd());
+};
 
-  console.log(`\nAdded ${chalk.green(name)} with path ${chalk.yellow(absolutePath)}\n`);
+exports.addFolder = (name = currentDirectoryName(), folderPath = './') => {
+  const folder = db.get('folders').find({ name });
+  if (folder.value()) {
+    console.log(chalk.bold.red(`\nFolder "${name}" already exists.\n`));
+    return;
+  }
+
+  const absolutePath = path.resolve(folderPath);
 
   db
     .get('folders')
@@ -16,6 +24,8 @@ exports.addFolder = (name, folderPath = './') => {
       lastAccess: +new Date(),
     })
     .value();
+
+  console.log(`\nAdded ${chalk.green(name)} with path ${chalk.yellow(absolutePath)}\n`);
 };
 
 exports.renameFolder = (oldName, newName) => {

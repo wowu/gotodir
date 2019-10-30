@@ -10,7 +10,8 @@
     "lint": "eslint src/ bin/gotodir-helper.js",
     "build":
       "babel -d lib/ src/ && babel -o bin/gotodir-helper bin/gotodir-helper.js && chmod +x bin/gotodir-helper",
-    "watch": "babel -d lib/ src/ -w",
+    "watch":
+      "concurrently 'babel -w -d lib/ src/' 'babel -w -o bin/gotodir-helper bin/gotodir-helper.js'",
     "prettier": "prettier --write src/**/*.js package.json bin/gotodir-helper.js"
   },
   "author": "Karol Musur",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^5.0.0",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "2.9.0",
